@@ -4,8 +4,8 @@ import datetime
 import schedule
 import time
 
-source_dir = "C:\Users\ryanl\OneDrive\Desktop\Py Projects\PythonAutomation"
-destination_dir = "C:\Users\ryanl\OneDrive\Desktop\Py Projects"
+source_dir = "C:/Users/ryanl/OneDrive/Desktop/Py Projects/PythonAutomation"
+destination_dir = "C:/Users/ryanl/OneDrive/Desktop/Py Projects"
 
 def copy_folder_to_directory(source, dest):
     today = datetime.date.today()
@@ -18,4 +18,11 @@ def copy_folder_to_directory(source, dest):
     except FileExistsError:
         print(f"Folder already exists in: {dest}")
 
-copy_folder_to_directory(source_dir, destination_dir)
+def l():
+    copy_folder_to_directory(source_dir, destination_dir)
+
+schedule.every().day.at("06:20").do(l)
+
+while True:
+    schedule.run_pending()
+    time.sleep(60)
